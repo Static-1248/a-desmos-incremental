@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+	"forceConsistentCasingInFileNames": true,
+	"strict": true,
+    "baseUrl": ".",
+    "paths": {
+      "exprbuild": ["packages/ExprBuild/src"],
+      "desmosinc": ["packages/desmosInc/src"]
+    }
+  },
+  "include": ["packages/*/src/**/*.ts"]
+}
