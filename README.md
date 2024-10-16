@@ -2,6 +2,10 @@ This repository is a Monorepo workspace;
 
 The two projects/packages included—"exprbuild" and "desmosinc"—are currently being developed together (for easier refactoring).
 
+---
+
+ExprBuild is a js(ts?) library to build expressions, plus the ability of exporting them as multiple forms --- LaTeX, desmos state json, or pipe them to an additional Desmos development server!
+
 Ideas of ExprBuild see [draft.md](packages/ExprBuild/draft.md)
 
 ---
