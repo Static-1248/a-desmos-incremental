@@ -1,4 +1,10 @@
+This repository is a Monorepo workspace;
 
+The two projects/packages included—"exprbuild" and "desmosinc"—are currently being developed together (for easier refactoring).
+
+Ideas of ExprBuild see [draft.md](packages/ExprBuild/draft.md)
+
+---
 此仓库为一个Monorepo workspace; 
 
 包含的两个项目/包——"exprbuild"和"desmosinc"现阶段联合开发（方便重构）。
