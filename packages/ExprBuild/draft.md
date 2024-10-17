@@ -47,20 +47,45 @@ const a_abs = $.If(  )
 
 ```
 
+---
 
-## Option: Allow `.eq()` = `.$("=")`, still static-analyzable？
+## Option: inputing RHS : $method vs pure-curry
 
+## Option: calling OP : `.$('=')` / `('=')` / `['=']` / `.eq()` / `.eq`
 
-## Option: $-based vs pure-curry
+## Option: declaring explicits : .eq() needed 	= true;
 
-## The Problem: How to input the rhs linearly ????
+## Option: declaring explicits : use closers	= true;
 
 ```ts
-const v_2 = $("v_2") .eq() .$( (v_11 .plus() .$(1)) .sr() );	// $method related
-const v_2 = $("v_2") .eq() .$( v_11 .plus() .$(1) ) .sr() ();	// $method related
-const v_2 = $("v_2") .$(v_11 .plus() .$(1)) .sr();				// $method related; Max style consistency (?
 
-const v_2 = $("v_2") .eq ( v_11 .plus ($(1)) ) .sr() ();
-const v_2 = $("v_2") (v_11 .plus ($(1))).sr();
+const x_b = $('x_b') .$('=') .$( ( x_a .$('+') .$(1) ) .$('^2') .$('/') .$(x_a) );	// .$('op');	$method; no closers;
+
+const x_b = $('x_b') .$('=') .$( x_a .$('+') .$(1) ) .$('^2') .$('/') .$(x_a) ();	// .$('op');	$method; 
+
+const x_b = $('x_b') .eq() .$( x_a .plus() .$(1) ) .sr() .div() .$(x_a) ();			// .op();		$method;
+
+const x_b = $('x_b') .eq .$( x_a .plus .$(1) ) .sr .div .$(x_a) ();					// .op;			$method;
+
+const x_b = $('x_b') ('=') ( x_a ('+') (1) ) ('^2') ('/') (x_a) ();					// ('op');		curry;
+
+const x_b = $('x_b') ['='] ( x_a ['+'] (1) ) ['^2'] ['/'] (x_a) ();					// ['op'];		curry;
+
+const x_b = $('x_b') .eq ( x_a .plus (1) ) .sr .div (x_a) ();						// .op;			curry;
+
+const x_b = expr`(${x_a} + 1)^2 / ${x_a}`	//???
+
+const x_b = $`x_b` `=` `${ $`${x_a}` `+` `1` }` `^2` `/` `${x_a}`	// ????????????????????
+
+"x_b = (x_a + 1)^2 / x_a"
 
 ```
+All of these above creates an Expr object of "(x_a + 1)^2 / x_a" based on x_a, another Expr, 's content, 
+	and at the same time declaring it to be an explicit variable named 'x_b'.
+
+Explicit means when outputting (to for example multiline LaTeX), the expression will be saved as a line in the output, 
+	and the variable name 'x_b' will be used to refer to this expression in other expressions.
+
+Structural info is kept in the Expr object as a tree, 
+	and all the explicit variables it depends are kept in the type,
+	so when outputting, the output system can check if all the explicit variables have and only have one declaration.

@@ -1,3 +1,3 @@
-export abstract class Mobj {
-	abstract type: string;
+export interface Mobj {
+	type: string;
 }

@@ -11,3 +11,5 @@ tsNode.register({
 
 userModule = require(cwd);
 console.log(userModule.default.type);
+
+// const x_b = $('x_b') ['='] ( x_a ['+'] (1) ) ['^2'] ['/'] (x_a) ();	
