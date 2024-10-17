@@ -1,29 +1,25 @@
-```typescript
+**Idea: Imitate the system in Logimat.**
+
+## Design Point: Linear Coding
+
+```ts
 
 $('x') .lteq() .$('y')
 
-// should hinder crashes ...?
-
-// transitionals have no worries.
-	const pisr = $.pi .sr();
-	// const pisr = $.pi .sqrt();	// never possible as ts context ensured consts' uniqueness
 ```
 
+## Problem: Name Consistency
 
-but what are they based on?\
-1st they can be based on consts.\
-2nd whatabout variables ...?\
---- variables are "explicits".
+A big point is to avoid name crashes. i.e, namespace consistency
 
-> transitionals: expr & funcs whose references (into other mobjs ...?) are substituted on output
-> explicits: expr & funcs which takes up a line & whose references are saved on output
+- **transitionals**: expr & funcs whose references (into other mobjs ...?) are substituted on output
+	> implemented by directly using ts value system.
 
+- **explicits**: expr & funcs which takes up a line & whose references are saved on output
+	> ts value system + marks in type.
 
-Explicits whose uniqueness is maintained via ts value context:
---- Okay impossible.
-
-Expicits whose uniqueness is maintained via the TYPING SYSTEM:
-```typescript
+Expicits whose consistency is maintained by the TYPING SYSTEM:
+```ts
 // v1.ts
 const v_1 = $("v_1") .eq() .$(1);	// type: Expr<[], "v_1">
 const v_11 = v_1 .sr();				// type: Expr<["v_1"]>
@@ -35,30 +31,36 @@ const v_2 = $("v_2") .eq() .$( v_11 .plus() .$(1) .sr() );  // type: Expr<["v_1"
 
 export default ExprList(v_1, v_2); 	// Dependency check here (via typing system)
 // ... is it feasible?
-// or, a step further,
+// or, one step further,
 export default ExprList(v_2);  // like this?
 ```
 
-```typescript
+```ts
 Expr implements Expr<[]> ...?
 ```
 
-
-
-
 ## Control Flows
 
-```typescript
-$.If(  )
-
+```ts
+const a = $("a") .eq() .$(1);
+const a_abs = $.If(  )
 
 ```
 
 
-
-# Design Options
-
-## Allow `.eq()` = `.$("=")`, still static-analyzable？
+## Option: Allow `.eq()` = `.$("=")`, still static-analyzable？
 
 
-## $-based vs pre-curry
+## Option: $-based vs pure-curry
+
+## The Problem: How to input the rhs linearly ????
+
+```ts
+const v_2 = $("v_2") .eq() .$( (v_11 .plus() .$(1)) .sr() );	// $method related
+const v_2 = $("v_2") .eq() .$( v_11 .plus() .$(1) ) .sr() ();	// $method related
+const v_2 = $("v_2") .$(v_11 .plus() .$(1)) .sr();				// $method related; Max style consistency (?
+
+const v_2 = $("v_2") .eq ( v_11 .plus ($(1)) ) .sr() ();
+const v_2 = $("v_2") (v_11 .plus ($(1))).sr();
+
+```
