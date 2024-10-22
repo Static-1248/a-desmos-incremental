@@ -1,3 +1,3 @@
-export interface Mobj {
-	type: string;
+export interface Mobj<T extends string> {
+	type: T;
 }

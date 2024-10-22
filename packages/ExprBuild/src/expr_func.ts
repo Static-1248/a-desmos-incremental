@@ -5,8 +5,10 @@ class ConstExpr extends Expr {
 	constructor(x: number) { super(); this.x = x; }
 }
 
-function $(x: number): ConstExpr {
+function expr(x: number): ConstExpr {
 	return new ConstExpr(x);
 }
 
-export { $ };
+export { expr };
+
+expr(1) ['+'] (2) ['+'] (3) ['+'] (5)

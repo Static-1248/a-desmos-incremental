@@ -16,11 +16,10 @@ Desmos中的限制:
 */
 
 
-export class Ineq extends Mobj {
-	type = "Eqn";
+export class Ineq implements Mobj<"Ineq"> {
+	type: "Ineq" = "Ineq";
 	expr: Expr;
 	constructor(expr: Expr) {
-		super();
 		this.expr = expr;
 	}
 }

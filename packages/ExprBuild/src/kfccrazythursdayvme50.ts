@@ -26,13 +26,13 @@ class Expr<T extends string[], U extends string | undefined = undefined> {};
  * 
  */
 
-function expr
-	<T extends [string[], string | undefined][]>
-	(strings: TemplateStringsArray, ...values: { [K in keyof T]: Expr<T[K][0], T[K][1]> })
-	: TypeTransform0<(typeof strings)['raw'], T> {
-	return {};
-}
+// function expr
+// 	<T extends [string[], string | undefined][]>
+// 	(strings: TemplateStringsArray, ...values: { [K in keyof T]: Expr<T[K][0], T[K][1]> })
+// 	: TypeTransform0<(typeof strings)['raw'], T> {
+// 	return {};
+// }
 
-type TypeTransform0
-	<T extends string[], U extends [string[], string | undefined][]> 
-	= TypeTransform1<T, U, 0, [], undefined>;
+// type TypeTransform0
+// 	<T extends string[], U extends [string[], string | undefined][]> 
+// 	= TypeTransform1<T, U, 0, [], undefined>;
