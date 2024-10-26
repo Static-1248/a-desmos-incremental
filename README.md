@@ -6,12 +6,27 @@ The two projects/packages included—"exprbuild" and "desmosinc"—are currently
 
 ExprBuild is a js(ts?) library to build expressions, plus the ability of exporting them to multiple forms — LaTeX, desmos state json, or render with our built-in Desmos development server!
 
-Ideas of ExprBuild see [design-draft.md](packages/ExprBuild/design-draft.md) [design-draft-v2.md](packages/ExprBuild/design-draft-v2.md)
+Current in architecture-design phase. Drafts see:
+- [design-draft.md](packages/ExprBuild/design-draft.md)
+- [design-draft-v2.md](packages/ExprBuild/design-draft-v2.md)
+
+"desmosinc" is a not yet started project, an incremental game powered by Desmos~
 
 ---
+
 此仓库为一个Monorepo workspace; 
 
 包含的两个项目/包——"exprbuild"和"desmosinc"现阶段联合开发（方便重构）。
+
+---
+
+ExprBuild是一个js(ts?)库，用于构建一系列数学表达式，同时将它们导出为多种形式——LaTeX、desmos state json、或者使用我们自带的 Desmos Dev Server 进行实时开发！
+
+目前处于架构设计阶段。草稿见：
+- [design-draft.md](packages/ExprBuild/design-draft.md)
+- [design-draft-v2.md](packages/ExprBuild/design-draft-v2.md)
+
+"desmosinc"是一个尚未开始的项目，一个Desmos增量游戏~
 
 ---
 
