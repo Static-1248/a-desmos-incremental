@@ -28,13 +28,20 @@ The possible math types in Desmos include:
 - **Eq**: an equation.
 - **Ineq**: an inequality.
 
-Not considered yet:
-- Special types of **Expr**:
-	- **Parametrics**
-	- **Points**
-	- **Polygons**
-	- **Lists**: list of numerical expr, points, or polygons
-	> These subtypes are primarily distinguished by their different plot settings (aka display settings). Desmos does not enforce strict restrictions on these settings; any expression type can have various display settings. The validity of these settings depends on the specific subtype it evaluates to at runtime. For now, we will ignore these distinctions.
+> **About Special types of Expr**:
+> 
+> There are several subtypes of Expr in Desmos:
+> - **Parametrics**
+> - **Points**
+> - **Polygons**
+> - **Lists**: list of numerical expr, points, or polygons
+> 
+> These subtypes are primarily distinguished by their different plot settings (aka display settings). Desmos does not enforce strict restrictions on these settings; any expression type can have various display settings. The validity of these settings depends on the specific subtype it evaluates to at runtime. For now, we will ignore these distinctions.
+
+Todo:
+- operators / inline functions:
+	- [x] exhaustive list by domain
+	- [ ] By-type implementation
 - functions & recursion
 - tables
 - things with suspended symbols (used but not defined)
