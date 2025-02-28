@@ -1,3 +1,6 @@
+\[Deprecated\]
+---
+
 This repository is a Monorepo workspace;
 
 The two projects/packages included—"exprbuild" and "desmosinc"—are currently being developed together (for easier refactoring).
