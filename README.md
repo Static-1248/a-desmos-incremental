@@ -1,6 +1,10 @@
 \[Deprecated\]
 ---
 
+See [ExprBuild](https://github.com/Static-1248/ExprBuild)
+
+---
+
 This repository is a Monorepo workspace;
 
 The two projects/packages included—"exprbuild" and "desmosinc"—are currently being developed together (for easier refactoring).
